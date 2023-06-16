@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Passwords</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>Passwords</h1>
+    <ul>
+        <% passwords.forEach(password => { %>
+            <li>
+                <p>Password:
+                    <%= password.password %>
+                </p>
+                <p>bcrypt Hash:
+                    <%= password.bcryptHash %>
+                </p>
+                <p>SHA512 Hash:
+                    <%= password.sha512Hash %>
+                </p>
+                <p>Argon2 Hash:
+                    <%= password.argon2Hash %>
+                </p>
+            </li>
+            <% }); %>
+    </ul>
+
+    <h2>Create New Password</h2>
+    <form method="POST" action="/create">
+        <input type="text" name="password" placeholder="Password" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
